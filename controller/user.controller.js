@@ -31,10 +31,12 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
 
     const name = req.query.name;
+    console.log(name);
     var condition = name ? { title: { $regex: new RegExp(name), $options: "i" } } : {};
 
     User.find(condition)
         .then(data => {
+            console.log(data);
             res.send(data);
         })
         .catch(err => {

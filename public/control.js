@@ -1,4 +1,5 @@
-let url = window.location.href + '';
+let domain = window.location.href;
+const url = domain+'api/users/getall';
 let btn = document.querySelector('.btn');
 
 
