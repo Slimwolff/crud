@@ -28,10 +28,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
- 
+
 require('./routes/user.routes')(app);
 
 app.listen(3000, () => {
     console.log('running');
+    console.log('DATABASE: Nome, preço, quantidade, categoria');
 })
 

@@ -2,13 +2,165 @@
     margin: 0;
     padding: 0;
     border: none;
+    outline: none;
 }
 
-.btn {
-    width: 100px;
+$primary-color: #0a5aff;
+$success: #66BB6A;
+$warning: #FBC02D;
+$danger: #E53935;
+
+@mixin position($pos: relative, $top: 0, $left: 0, $right:none, $bottom: none){
+
+    position: $pos;
+    @if $top != none {
+        top: $top;
+    }
+    @if $left != none{
+        left: $left;
+    }
+    @if $bottom != none {
+        bottom: $bottom;
+    }
+    @if $right != none {
+        right: $right;
+    }
+}
+
+@mixin flex($flex: flex, $flow: none, $justify: none, $align-items: none, $align-cont: none) {
+    display: $flex;
+    @if $flow != none {
+        flex-flow: $flow;
+    }
+    @if $justify != none {
+        justify-content: $justify;
+    }
+    @if $align-items != none {
+        align-items: $align-items;
+    }
+    @if $align-cont != none {
+        align-content: $align-cont;
+    }
+}
+
+@mixin btn($bg: $primary-color, $ml: none, $mr: none){
+    width: 80px;
     height: 45px;
-    margin-left: 20px;
+    border: none;
+    border-radius: 4.5px;
+    cursor: pointer;
     color: #fff;
-    background-color: #0a5aff;
-    border-radius: 3.5px;
+    background: $bg;
+
+    @if $ml != none{
+        margin-left: $ml;
+    }
+    @if $mr != none{
+        margin-right: $mr;
+    }
+}
+
+
+.btn {
+    @include btn();
+}
+.bg-success { background: $success; }
+.bg-warning { background: $warning; }
+.bg-danger { background: $danger; }
+
+#main {
+    @include position(fixed);
+    width: 100%;
+    height: 100vh;
+    background: #e8e8e8;
+
+    
+    .main-wrapped { 
+        @include flex($flow: row wrap,$justify: center);
+        width: 580px;
+        height: 100%;
+    
+
+        .search-area {
+            @include flex($flow: column nowrap);
+            width: 90%;
+            
+            margin-top: 25px;
+            border-radius: 4.5px;
+            background: #f9f9f9;
+
+            .search {
+                @include flex($flow: row wrap,$align-items: center);
+                width: 100%;
+                height: 80px;
+
+                .input-search{
+                    flex: 1;
+                    width: auto;
+                    height: 45px;
+                    min-width: 200px;
+                    margin-left: 25px;
+                    padding: 15px 10px;
+                    font-size: 16px;
+                    border: 0.5px solid #c9c9c9;
+                    border-radius: 4.5px;
+                    background: #e8e8e8;
+                    box-sizing: border-box;
+                }
+                .btn-search {
+                    margin: 0 25px 0 15px;
+                }
+                
+            }
+
+            .search-actions {
+                @include flex($flow: row nowrap, $justify: space-evenly, $align-items: center);
+                width: 100%;
+                flex: 1;    
+            }
+
+        }
+
+        .list-area {
+            @include flex($flow: column nowrap);
+            width: 90%;
+            height: 500px;
+            margin-top: 15px;
+            border-radius: 4.5px;
+            background: #f9f9f9;
+
+            .user-container{
+                flex: 1;
+                width: auto;
+                height: auto;
+                // max-height: 100px;
+                margin: 15px 15px 0;
+                border: 0.5px solid #c9c9c9;
+                border-radius: 4.5px;
+                background-color: #f1f1f1;
+
+                table {
+                    border-collapse: collapse;
+                    background-color: #fff;
+                    thead tr {
+                        background-color: #0a5aff;
+                        color: #fff;
+                        text-align: left;
+                    }
+
+                    td, th {
+                        padding: 12px 15px;
+                    }
+
+                    tbody tr {
+                        border-bottom: thin solid #dddddd;
+                    }
+
+                    tbody tr:nth-of-type(even) {
+                        background-color: #eaeaea;
+                    }
+                }
+            }
+        }
+    }
 }

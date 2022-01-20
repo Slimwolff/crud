@@ -2,15 +2,120 @@
   margin: 0;
   padding: 0;
   border: none;
+  outline: none;
 }
 
 .btn {
-  width: 100px;
+  width: 80px;
   height: 45px;
-  margin-left: 20px;
+  border: none;
+  border-radius: 4.5px;
+  cursor: pointer;
   color: #fff;
+  background: #0a5aff;
+}
+
+.bg-success {
+  background: #66BB6A;
+}
+
+.bg-warning {
+  background: #FBC02D;
+}
+
+.bg-danger {
+  background: #E53935;
+}
+
+#main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #e8e8e8;
+}
+#main .main-wrapped {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 580px;
+  height: 100%;
+}
+#main .main-wrapped .search-area {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  margin-top: 25px;
+  border-radius: 4.5px;
+  background: #f9f9f9;
+}
+#main .main-wrapped .search-area .search {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+#main .main-wrapped .search-area .search .input-search {
+  flex: 1;
+  width: auto;
+  height: 45px;
+  min-width: 200px;
+  margin-left: 25px;
+  padding: 15px 10px;
+  font-size: 16px;
+  border: 0.5px solid #c9c9c9;
+  border-radius: 4.5px;
+  background: #e8e8e8;
+  box-sizing: border-box;
+}
+#main .main-wrapped .search-area .search .btn-search {
+  margin: 0 25px 0 15px;
+}
+#main .main-wrapped .search-area .search-actions {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+#main .main-wrapped .list-area {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  height: 500px;
+  margin-top: 15px;
+  border-radius: 4.5px;
+  background: #f9f9f9;
+}
+#main .main-wrapped .list-area .user-container {
+  flex: 1;
+  width: auto;
+  height: auto;
+  margin: 15px 15px 0;
+  border: 0.5px solid #c9c9c9;
+  border-radius: 4.5px;
+  background-color: #f1f1f1;
+}
+#main .main-wrapped .list-area .user-container table {
+  border-collapse: collapse;
+  background-color: #fff;
+}
+#main .main-wrapped .list-area .user-container table thead tr {
   background-color: #0a5aff;
-  border-radius: 3.5px;
+  color: #fff;
+  text-align: left;
+}
+#main .main-wrapped .list-area .user-container table td, #main .main-wrapped .list-area .user-container table th {
+  padding: 12px 15px;
+}
+#main .main-wrapped .list-area .user-container table tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+#main .main-wrapped .list-area .user-container table tbody tr:nth-of-type(even) {
+  background-color: #eaeaea;
 }
 
 /*# sourceMappingURL=style.css.map */

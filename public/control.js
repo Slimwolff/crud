@@ -1,6 +1,6 @@
 let domain = window.location.href;
 const url = domain+'api/users/getall';
-let btn = document.querySelector('.btn');
+
 
 
 btn.addEventListener('click', (e) => {
@@ -16,6 +16,10 @@ btn.addEventListener('click', (e) => {
         }).then((data) => {
 
             console.log(data);
+
+            // data.forEach(element => {
+            //     console.log(element.name);
+            // });
 
         })
 });

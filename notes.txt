@@ -1,0 +1,3 @@
+- change the file names
+- change db scheme to (name, price,quantity, category) [./models/user.js] -> [./models/product.js] .
+- change create method on user controller -> product.controller.js

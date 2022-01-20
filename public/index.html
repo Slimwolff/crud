@@ -8,11 +8,67 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>CRUD with MongoDB</h1>
 
-    <button class="btn">Get Content</button>
+    <div id="main">
+        <div class="main-wrapped">
+            <div class="search-area">
+                <div class="search">
+                    <input type="text" name="" class="input-search">
+                    <button type="submit" class="btn btn-search">Search</button>
+                </div>
+                <!-- <div class="search-actions">
+                    <button class="btn" onclick="getAll()">Get All</button>
+                    <button class="btn bg-success" onclick="getAll()">Create</button>
+                    <button class="btn bg-warning" onclick="getAll()">Edit</button>
+                    <button class="btn bg-danger" onclick="getAll()">Delete</button>
+                </div> -->
+            </div>
 
-    <script src="./control.js"></script>
+            <div id="user-list" class="list-area">
+                <div class="user-container">
+                    <table>
+                        <colgroup>
+                            <col style=" width: 100px;">
+                            <col style=" width: 100px;">
+                            <col style=" width: 100px;">
+                            <col style=" width: 250px;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Cargo</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AA</td>
+                                <td>AA87</td>
+                                <td>AAXX!!22</td>
+                                <td> button1 button2</td>
+                            </tr>
+                            <tr>
+                                <td>AA</td>
+                                <td>AA87</td>
+                                <td>AAXX!!22</td>
+                                <td> button1 button2</td>
+                            </tr>
+                            <tr>
+                                <td>AA</td>
+                                <td>AA87</td>
+                                <td>AAXX!!22</td>
+                                <td> button1 button2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script src="./control.js"></script> -->
 
 </body>
 </html>
