@@ -5,7 +5,7 @@ const User = db.user;
 exports.create = (req, res) => {
 
     if (!req.body.user) {
-        res.status(400).send({ message: "Content can not be empty!"});
+        res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
 
@@ -15,7 +15,7 @@ exports.create = (req, res) => {
         cargo: req.body.cargo
     });
 
-    user.save(user)
+    User.save(user)
         .then( (data) => {
             res.send(data);
         })
