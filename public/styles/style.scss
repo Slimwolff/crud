@@ -3,6 +3,7 @@
     padding: 0;
     border: none;
     outline: none;
+    font-family: 'Rubik', sans-serif;
 }
 
 $primary-color: #0a5aff;
@@ -77,8 +78,8 @@ $danger: #E53935;
 
     
     .main-wrapped { 
-        @include flex($flow: row wrap,$justify: center);
-        width: 580px;
+        @include flex($flow: column nowrap, $align-items: center);
+        width: 700px;
         height: 100%;
     
 
@@ -99,7 +100,7 @@ $danger: #E53935;
                     flex: 1;
                     width: auto;
                     height: 45px;
-                    min-width: 200px;
+                    min-width: 100px;
                     margin-left: 25px;
                     padding: 15px 10px;
                     font-size: 16px;
@@ -110,6 +111,8 @@ $danger: #E53935;
                 }
                 .btn-search {
                     margin: 0 25px 0 15px;
+                    font-weight: 600;
+                    font-size: 16px;
                 }
                 
             }
@@ -117,25 +120,29 @@ $danger: #E53935;
             .search-actions {
                 @include flex($flow: row nowrap, $justify: space-evenly, $align-items: center);
                 width: 100%;
-                flex: 1;    
+                flex: 1;
             }
 
         }
 
         .list-area {
-            @include flex($flow: column nowrap);
+            @include flex($flow: column wrap, $align-items: center);
+            position: relative;
+            min-width: 300px;
             width: 90%;
-            height: 500px;
+            // height: 100%;
             margin-top: 15px;
+            margin-bottom: 15px;
             border-radius: 4.5px;
             background: #f9f9f9;
 
             .user-container{
-                flex: 1;
-                width: auto;
-                height: auto;
+                // flex: 1;
+                position: relative;
+                width: -webkit-fill-available;
+                // height: 100%;
                 // max-height: 100px;
-                margin: 15px 15px 0;
+                margin: 15px 15px 15px;
                 border: 0.5px solid #c9c9c9;
                 border-radius: 4.5px;
                 background-color: #f1f1f1;
@@ -143,6 +150,7 @@ $danger: #E53935;
                 table {
                     border-collapse: collapse;
                     background-color: #fff;
+                    width: -webkit-fill-available;
                     thead tr {
                         background-color: #0a5aff;
                         color: #fff;
@@ -151,6 +159,7 @@ $danger: #E53935;
 
                     td, th {
                         padding: 12px 15px;
+                        font-size: 14px;
                     }
 
                     tbody tr {
@@ -161,28 +170,58 @@ $danger: #E53935;
                         background-color: #eaeaea;
                     }
                 }
+
+                .table-body-container {
+                    // width: 100%;
+                    // height: auto;
+                    max-height: 80%;
+                    overflow-y: auto;
+                    background-color: $primary-color;
+                }
+
             }
         }
     }
 
     .create-user {
+        @include flex($flow: column wrap, $align-items: center);
+        min-width: 300px;
         width: 425px;
         height: 400px;
         margin-top: 25px;
         border-radius: 4.5px;
-        background: #f1f1f1;
+        background: #f9f9f9;
+
+        
 
         form {
-            width: 100%;
+            width: 80%;
             height: auto;
+            margin-top: 35px;
 
             .form-container {
                 @include flex($flow: column wrap);
-                width: 100%;
-                height: 50px;
+                height: 80px; 
 
                 input {
-                    margin: 5px 30px 0; 
+                    
+                    height: 30px;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    border: thin solid #c9c9c9;
+                    border-radius: 4.5px;
+                    background: #e8e8e8;
+                    box-sizing: border-box;
+                }
+
+                
+            }
+
+            .form-actions {
+                @include flex($flow: row nowrap, $justify: flex-end);
+
+                button {
+                    margin-left: 20px;
                 }
             }
         }

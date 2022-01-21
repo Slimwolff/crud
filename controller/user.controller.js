@@ -4,20 +4,31 @@ const User = db.user;
 
 exports.create = (req, res) => {
 
+    // console.log('front-end reach this route');
+
     if (!req.body.user) {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
+    let user, age, cargo;
 
-    const user = new User({
-        name: req.body.user,
-        age: req.body.age,
-        cargo: req.body.cargo
+    user = req.body.user;
+    age = req.body.age;
+    cargo = req.body.cargo;
+
+    console.log(`User is: ${user} - age is: ${age} - cargo is: ${cargo}`);
+
+    
+
+    const userObj = new User({
+        name: user,
+        age: age,
+        cargo: cargo
     });
 
-    User.save(user)
+    userObj.save(userObj)
         .then( (data) => {
-            res.send(data);
+            res.status(201).send({ message: "User was created successfully!"});
         })
         .catch(err =>  {
             res.staus(500).send({

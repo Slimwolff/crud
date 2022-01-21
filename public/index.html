@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -16,23 +19,12 @@
                     <input type="text" name="" class="input-search">
                     <button type="submit" class="btn btn-search">Search</button>
                 </div>
-                <!-- <div class="search-actions">
-                    <button class="btn" onclick="getAll()">Get All</button>
-                    <button class="btn bg-success" onclick="getAll()">Create</button>
-                    <button class="btn bg-warning" onclick="getAll()">Edit</button>
-                    <button class="btn bg-danger" onclick="getAll()">Delete</button>
-                </div> -->
             </div>
 
             <div id="user-list" class="list-area">
                 <div class="user-container">
-                    <table>
-                        <colgroup>
-                            <col style=" width: 100px;">
-                            <col style=" width: 100px;">
-                            <col style=" width: 100px;">
-                            <col style=" width: 250px;">
-                        </colgroup>
+
+                    <!-- <table>
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -41,36 +33,24 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>AA</td>
-                                <td>AA87</td>
-                                <td>AAXX!!22</td>
-                                <td> button1 button2</td>
-                            </tr>
-                            <tr>
-                                <td>AA</td>
-                                <td>AA87</td>
-                                <td>AAXX!!22</td>
-                                <td> button1 button2</td>
-                            </tr>
-                            <tr>
-                                <td>AA</td>
-                                <td>AA87</td>
-                                <td>AAXX!!22</td>
-                                <td> button1 button2</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    </table> -->
+
+                    <div class="table-body-container">
+                        <table>
+                            <tbody class="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
         </div>
 
-        <div class="create-user">
-        <div>
-            <h1>Create a user</h1>
-        </div>
-            <form action="" id="create-user-form">
+        <!-- <div class="create-user">
+            <div>
+                <h1>Create a user</h1>
+            </div>
+            <form action="/" id="create-user-form">
                 <div class="form-container">
                     <label for="name">Nome:</label>
                     <input type="text" name="name">
@@ -84,15 +64,16 @@
                     <input type="text" name="role">
                 </div>
                 <div class="form-actions">
-                    <button>Cancelar</button>
-                    <button>Salvar</button>
+                    <button class="btn">Cancelar</button>
+                    <button class="btn">Salvar</button>
                 </div>
             </form>
-        </div>
+        </div> -->
+
     </div>
 
 
-    <!-- <script src="./control.js"></script> -->
+    <script src="./control.js"></script>
 
 </body>
 </html>

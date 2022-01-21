@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-require('./routes/user.routes')(app);
+require('./routes/user.routes.js')(app);
 
 app.listen(3000, () => {
     console.log('running');

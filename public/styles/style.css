@@ -3,6 +3,7 @@
   padding: 0;
   border: none;
   outline: none;
+  font-family: "Rubik", sans-serif;
 }
 
 .btn {
@@ -39,9 +40,9 @@
 }
 #main .main-wrapped {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  width: 580px;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 700px;
   height: 100%;
 }
 #main .main-wrapped .search-area {
@@ -63,7 +64,7 @@
   flex: 1;
   width: auto;
   height: 45px;
-  min-width: 200px;
+  min-width: 100px;
   margin-left: 25px;
   padding: 15px 10px;
   font-size: 16px;
@@ -74,6 +75,8 @@
 }
 #main .main-wrapped .search-area .search .btn-search {
   margin: 0 25px 0 15px;
+  font-weight: 600;
+  font-size: 16px;
 }
 #main .main-wrapped .search-area .search-actions {
   display: flex;
@@ -85,18 +88,20 @@
 }
 #main .main-wrapped .list-area {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
+  align-items: center;
+  position: relative;
+  min-width: 300px;
   width: 90%;
-  height: 500px;
   margin-top: 15px;
+  margin-bottom: 15px;
   border-radius: 4.5px;
   background: #f9f9f9;
 }
 #main .main-wrapped .list-area .user-container {
-  flex: 1;
-  width: auto;
-  height: auto;
-  margin: 15px 15px 0;
+  position: relative;
+  width: -webkit-fill-available;
+  margin: 15px 15px 15px;
   border: 0.5px solid #c9c9c9;
   border-radius: 4.5px;
   background-color: #f1f1f1;
@@ -104,6 +109,7 @@
 #main .main-wrapped .list-area .user-container table {
   border-collapse: collapse;
   background-color: #fff;
+  width: -webkit-fill-available;
 }
 #main .main-wrapped .list-area .user-container table thead tr {
   background-color: #0a5aff;
@@ -112,6 +118,7 @@
 }
 #main .main-wrapped .list-area .user-container table td, #main .main-wrapped .list-area .user-container table th {
   padding: 12px 15px;
+  font-size: 14px;
 }
 #main .main-wrapped .list-area .user-container table tbody tr {
   border-bottom: thin solid #dddddd;
@@ -119,25 +126,48 @@
 #main .main-wrapped .list-area .user-container table tbody tr:nth-of-type(even) {
   background-color: #eaeaea;
 }
+#main .main-wrapped .list-area .user-container .table-body-container {
+  max-height: 80%;
+  overflow-y: auto;
+  background-color: #0a5aff;
+}
 #main .create-user {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  min-width: 300px;
   width: 425px;
   height: 400px;
   margin-top: 25px;
   border-radius: 4.5px;
-  background: #f1f1f1;
+  background: #f9f9f9;
 }
 #main .create-user form {
-  width: 100%;
+  width: 80%;
   height: auto;
+  margin-top: 35px;
 }
 #main .create-user form .form-container {
   display: flex;
   flex-flow: column wrap;
-  width: 100%;
-  height: 50px;
+  height: 80px;
 }
 #main .create-user form .form-container input {
-  margin: 5px 30px 0;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: thin solid #c9c9c9;
+  border-radius: 4.5px;
+  background: #e8e8e8;
+  box-sizing: border-box;
+}
+#main .create-user form .form-actions {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+#main .create-user form .form-actions button {
+  margin-left: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
