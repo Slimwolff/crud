@@ -127,21 +127,17 @@ $danger: #E53935;
 
         .list-area {
             @include flex($flow: column wrap, $align-items: center);
-            position: relative;
-            min-width: 300px;
             width: 90%;
-            // height: 100%;
+            min-height: 0;
             margin-top: 15px;
             margin-bottom: 15px;
             border-radius: 4.5px;
             background: #f9f9f9;
 
             .user-container{
-                // flex: 1;
-                position: relative;
-                width: -webkit-fill-available;
-                // height: 100%;
-                // max-height: 100px;
+                @include flex($flow: column nowrap);
+                flex: 1;
+                min-height: 0;
                 margin: 15px 15px 15px;
                 border: 0.5px solid #c9c9c9;
                 border-radius: 4.5px;
@@ -150,7 +146,7 @@ $danger: #E53935;
                 table {
                     border-collapse: collapse;
                     background-color: #fff;
-                    width: -webkit-fill-available;
+
                     thead tr {
                         background-color: #0a5aff;
                         color: #fff;
@@ -172,11 +168,8 @@ $danger: #E53935;
                 }
 
                 .table-body-container {
-                    // width: 100%;
-                    // height: auto;
-                    max-height: 80%;
                     overflow-y: auto;
-                    background-color: $primary-color;
+
                 }
 
             }

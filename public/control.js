@@ -24,52 +24,52 @@ searchBtn.addEventListener('click', (e) => {
 });
 
 
-// let form = document.forms[0];
-// let createUserURL = domain+createUserPath;
+let form = document.forms[0];
+let createUserURL = domain+createUserPath;
 
-// form[4].addEventListener('click', (e) => {
+form[4].addEventListener('click', (e) => {
 
-//     e.preventDefault();
+    e.preventDefault();
 
-//     console.log(createUserURL)
+    console.log(createUserURL)
 
-//     let user = form[0].value;
-//     let age = form[1].value;
-//     let cargo = form[2].value;
+    let user = form[0].value;
+    let age = form[1].value;
+    let cargo = form[2].value;
 
-//     console.log(`user: ${user} \n age: ${age} \n cargo: ${cargo} \n`)
+    console.log(`user: ${user} \n age: ${age} \n cargo: ${cargo} \n`)
 
-//     let data = {
-//         user: user,
-//         age: age,
-//         cargo: cargo
-//     }
+    let data = {
+        user: user,
+        age: age,
+        cargo: cargo
+    }
  
     
-//     fetch(createUserURL, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type':'application/json'
-//         },
-//         body: JSON.stringify(data)
+    fetch(createUserURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(data)
 
-//     }).then((data) => {
+    }).then((data) => {
 
-//         if(data.ok){
-//             form[0].value = '';
-//             form[1].value = '';
-//             form[2].value = '';
-//         }
+        if(data.ok){
+            form[0].value = '';
+            form[1].value = '';
+            form[2].value = '';
+        }
 
-//         return data.json();
+        return data.json();
 
-//     }).then((data) => {
-//         // console.log(data);
+    }).then((data) => {
+        // console.log(data);
 
-//         // if()
-//     })
+        // if()
+    })
     
-// });
+});
 
 let list = document.querySelector('.table-body');
 
