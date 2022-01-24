@@ -83,23 +83,34 @@ exports.update = (req, res) => {
         return res.status(400).send({
           message: "Data to update can not be empty!"
         });
-      }
+    }
     
+    console.log(req.body);
+    let name = req.body.name;
+
     const id = req.params.id;
+
+    // console.log('this is req.body.name: '+name);
+
+    // console.log('this is ID =  '+id);
     
-    User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
-        .then(data => {
-            if (!data) {
-                res.status(404).send({
-                    message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found!`
-                });
-            } else res.send({ message: "Tutorial was updated successfully." });
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error updating Tutorial with id=" + id
-            });
-        });
+    
+    // User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    //     .then(data => {
+
+    //         console.log(data);
+
+    //         // if (!data) {
+    //         //     res.status(404).send({
+    //         //         message: `Cannot update User with id=${id}. Maybe User was not found!`
+    //         //     });
+    //         // } else res.send({ message: "User was updated successfully." });
+    //     })
+    //     .catch(err => {
+    //         res.status(500).send({
+    //             message: "Error updating user with id=" + id+ " Error: "+err
+    //         });
+    //     });
 };
 
 

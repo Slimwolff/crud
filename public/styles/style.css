@@ -16,6 +16,12 @@
   background: #0a5aff;
 }
 
+.btn-actions {
+  width: 60px !important;
+  height: 30px !important;
+  margin-right: 5px;
+}
+
 .bg-success {
   background: #66BB6A;
 }
@@ -89,7 +95,7 @@
 #main .main-wrapped .list-area {
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
+  align-items: stretch;
   width: 90%;
   min-height: 0;
   margin-top: 15px;
@@ -100,9 +106,8 @@
 #main .main-wrapped .list-area .user-container {
   display: flex;
   flex-flow: column nowrap;
-  flex: 1;
+  flex: 1 1 auto;
   min-height: 0;
-  margin: 15px 15px 15px;
   border: 0.5px solid #c9c9c9;
   border-radius: 4.5px;
   background-color: #f1f1f1;
@@ -110,15 +115,43 @@
 #main .main-wrapped .list-area .user-container table {
   border-collapse: collapse;
   background-color: #fff;
+  table-layout: fixed;
 }
 #main .main-wrapped .list-area .user-container table thead tr {
   background-color: #0a5aff;
   color: #fff;
   text-align: left;
 }
+#main .main-wrapped .list-area .user-container table thead tr th:nth-child(1) {
+  width: 100px;
+}
+#main .main-wrapped .list-area .user-container table thead tr th:nth-child(2) {
+  width: 100px;
+}
+#main .main-wrapped .list-area .user-container table thead tr th:nth-child(3) {
+  width: 100px;
+}
+#main .main-wrapped .list-area .user-container table thead tr th:nth-child(4) {
+  width: 250px;
+  padding: 0 !important;
+}
+#main .main-wrapped .list-area .user-container table tr td:nth-child(1) {
+  width: 100px;
+}
+#main .main-wrapped .list-area .user-container table tr td:nth-child(2) {
+  width: 100px;
+}
+#main .main-wrapped .list-area .user-container table tr td:nth-child(3) {
+  width: 100px;
+}
+#main .main-wrapped .list-area .user-container table tr td:nth-child(4) {
+  width: 250px;
+  padding: 0 !important;
+}
 #main .main-wrapped .list-area .user-container table td, #main .main-wrapped .list-area .user-container table th {
   padding: 12px 15px;
   font-size: 14px;
+  text-align: center;
 }
 #main .main-wrapped .list-area .user-container table tbody tr {
   border-bottom: thin solid #dddddd;
@@ -128,6 +161,10 @@
 }
 #main .main-wrapped .list-area .user-container .table-body-container {
   overflow-y: auto;
+  display: flex;
+}
+#main .main-wrapped .list-area .user-container .table-body-container table {
+  flex: 1;
 }
 #main .users-panel {
   flex: 1;

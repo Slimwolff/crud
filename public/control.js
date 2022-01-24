@@ -82,20 +82,84 @@ function updateList(data){
         let td1 = document.createElement('td');
         let td2 = document.createElement('td');
         let td3 = document.createElement('td');
-        let td4;
-        let td = [td1, td2, td3, td4=document.createElement('td')];
+        let td4 = document.createElement('td');
+
+       
+
+        let td = [td1, td2, td3, td4];
 
         td1.innerText = element.name;
         td2.innerText = element.age;
         td3.innerText = element.cargo;
-    
+        td4.appendChild(createButton(element.id));
+       
+
+        
+        // ADD <td> elements for a <tr>
         for(let i=0; i<=3; i++){
             tr.appendChild(td[i]);
         }
 
+        // ADD <tr> to <tbody>
         list.appendChild(tr)
     });
 
 }
 
+// create buttons
+function createButton (id){
+     
+    let div = document.createElement('div');
 
+    let btnDel = document.createElement('button');
+    let btnEdit = document.createElement('button');
+    let btn = [btnDel, btnEdit];
+    // set text of buttons
+    btn[0].innerText = "Edit";
+    btn[1].innerText = "Delete";
+
+
+    let ids = id;
+
+    btn[0].setAttribute('onclick',`updateUser('${ids}')`);
+
+    // add standard classes on buttons
+    for (let i=0; i<btn.length; i++) {
+         btn[i].classList.add('btn');
+         btn[i].classList.add('btn-actions');
+    }
+
+    // add special classe for delete button
+    btn[1].classList.add('bg-danger');
+
+    for(let i=0; i< btn.length; i++) {
+        div.appendChild(btn[i]);
+    }
+
+    return div;
+
+}
+
+let updateUserURL = domain+'api/users/'
+function updateUser(id) {
+    
+    
+    let updateUserURLPath = updateUserURL+`${id}`;
+     
+    console.log(`This is route to update an
+     user: ${updateUserURLPath}`);
+
+    fetch(updateUserURLPath, {
+        method: 'PUT'
+    }).then(response => {
+        return response.json();
+    }).then(data => {
+        console.log(data);
+    }) 
+
+    
+}
+
+function deleteUser() {
+
+}

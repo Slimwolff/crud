@@ -9,7 +9,7 @@ const db = require('./models');
 //database connection and handle error
 db.mongoose.connect(db.url, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 }).then(() => {
     console.log('Connected to database!');
 }).catch(err => {

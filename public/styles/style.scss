@@ -65,6 +65,13 @@ $danger: #E53935;
 .btn {
     @include btn();
 }
+.btn-actions {
+    width: 60px !important;
+    height: 30px !important;
+    margin-right: 5px;
+}
+
+
 .bg-success { background: $success; }
 .bg-warning { background: $warning; }
 .bg-danger { background: $danger; }
@@ -126,7 +133,7 @@ $danger: #E53935;
         }
 
         .list-area {
-            @include flex($flow: column wrap, $align-items: center);
+            @include flex($flow: column wrap, $align-items: stretch);
             width: 90%;
             min-height: 0;
             margin-top: 15px;
@@ -136,26 +143,57 @@ $danger: #E53935;
 
             .user-container{
                 @include flex($flow: column nowrap);
-                flex: 1;
+                flex: 1 1 auto;
                 min-height: 0;
-                margin: 15px 15px 15px;
                 border: 0.5px solid #c9c9c9;
                 border-radius: 4.5px;
                 background-color: #f1f1f1;
 
                 table {
+
                     border-collapse: collapse;
                     background-color: #fff;
+                    table-layout: fixed;
 
                     thead tr {
                         background-color: #0a5aff;
                         color: #fff;
                         text-align: left;
+
+                        th:nth-child(1) {
+                            width: 100px;
+    
+                        }
+                        th:nth-child(2) {
+                            width: 100px;
+                        }
+                        th:nth-child(3) {
+                            width: 100px;
+                        }
+                        th:nth-child(4) {
+                            width: 250px;
+                            padding: 0 !important;
+                        }
                     }
 
+                    tr td:nth-child(1) {
+                        width: 100px;
+
+                    }
+                    tr td:nth-child(2) {
+                        width: 100px;
+                    }
+                    tr td:nth-child(3) {
+                        width: 100px;
+                    }
+                    tr td:nth-child(4) {
+                        width: 250px;
+                        padding: 0 !important;
+                    }
                     td, th {
                         padding: 12px 15px;
                         font-size: 14px;
+                        text-align: center;
                     }
 
                     tbody tr {
@@ -169,7 +207,11 @@ $danger: #E53935;
 
                 .table-body-container {
                     overflow-y: auto;
+                    display: flex;
 
+                    table {
+                        flex: 1;
+                    }
                 }
 
             }
@@ -189,9 +231,7 @@ $danger: #E53935;
             margin-top: 25px;
             border-radius: 4.5px;
             background: #f9f9f9;
-    
-            
-    
+
             form {
                 width: 80%;
                 height: auto;
@@ -202,7 +242,6 @@ $danger: #E53935;
                     height: 80px; 
     
                     input {
-                        
                         height: 30px;
                         padding: 5px 10px;
                         font-size: 14px;
@@ -211,8 +250,6 @@ $danger: #E53935;
                         background: #e8e8e8;
                         box-sizing: border-box;
                     }
-    
-                    
                 }
     
                 .form-actions {
