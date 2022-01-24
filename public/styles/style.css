@@ -129,7 +129,11 @@
 #main .main-wrapped .list-area .user-container .table-body-container {
   overflow-y: auto;
 }
-#main .create-user {
+#main .users-panel {
+  flex: 1;
+  min-height: 0;
+}
+#main .users-panel .create-user {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -140,17 +144,17 @@
   border-radius: 4.5px;
   background: #f9f9f9;
 }
-#main .create-user form {
+#main .users-panel .create-user form {
   width: 80%;
   height: auto;
   margin-top: 35px;
 }
-#main .create-user form .form-container {
+#main .users-panel .create-user form .form-container {
   display: flex;
   flex-flow: column wrap;
   height: 80px;
 }
-#main .create-user form .form-container input {
+#main .users-panel .create-user form .form-container input {
   height: 30px;
   padding: 5px 10px;
   font-size: 14px;
@@ -159,12 +163,12 @@
   background: #e8e8e8;
   box-sizing: border-box;
 }
-#main .create-user form .form-actions {
+#main .users-panel .create-user form .form-actions {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
 }
-#main .create-user form .form-actions button {
+#main .users-panel .create-user form .form-actions button {
   margin-left: 20px;
 }
 

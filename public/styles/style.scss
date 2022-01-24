@@ -176,47 +176,54 @@ $danger: #E53935;
         }
     }
 
-    .create-user {
-        @include flex($flow: column wrap, $align-items: center);
-        min-width: 300px;
-        width: 425px;
-        height: 400px;
-        margin-top: 25px;
-        border-radius: 4.5px;
-        background: #f9f9f9;
-
+    .users-panel {
         
+        flex: 1;
+        min-height: 0;
 
-        form {
-            width: 80%;
-            height: auto;
-            margin-top: 35px;
-
-            .form-container {
-                @include flex($flow: column wrap);
-                height: 80px; 
-
-                input {
+        .create-user {
+            @include flex($flow: column wrap, $align-items: center);
+            min-width: 300px;
+            width: 425px;
+            height: 400px;
+            margin-top: 25px;
+            border-radius: 4.5px;
+            background: #f9f9f9;
+    
+            
+    
+            form {
+                width: 80%;
+                height: auto;
+                margin-top: 35px;
+    
+                .form-container {
+                    @include flex($flow: column wrap);
+                    height: 80px; 
+    
+                    input {
+                        
+                        height: 30px;
+                        padding: 5px 10px;
+                        font-size: 14px;
+                        border: thin solid #c9c9c9;
+                        border-radius: 4.5px;
+                        background: #e8e8e8;
+                        box-sizing: border-box;
+                    }
+    
                     
-                    height: 30px;
-                    padding: 5px 10px;
-                    font-size: 14px;
-                    border: thin solid #c9c9c9;
-                    border-radius: 4.5px;
-                    background: #e8e8e8;
-                    box-sizing: border-box;
                 }
-
-                
-            }
-
-            .form-actions {
-                @include flex($flow: row nowrap, $justify: flex-end);
-
-                button {
-                    margin-left: 20px;
+    
+                .form-actions {
+                    @include flex($flow: row nowrap, $justify: flex-end);
+    
+                    button {
+                        margin-left: 20px;
+                    }
                 }
             }
         }
     }
+    
 }
