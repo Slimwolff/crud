@@ -141,16 +141,16 @@ function createButton (id){
 }
 
 let updateUserURL = domain+'api/users/'
-function updateUser(id) {
-    
-    
-    let updateUserURLPath = updateUserURL+`${id}`;
-     
-    console.log(`This is route to update an
-     user: ${updateUserURLPath}`);
 
-    fetch(updateUserURLPath, {
-        method: 'PUT'
+function updateUser(id) {    
+    let updateUser = updateUserURL+`${id}`
+    console.log(updateUser);
+
+    fetch(updateUser, {
+        method: 'PUT',
+        headers: {
+            "Content-Type":"Application/json"
+        }
     }).then(response => {
         return response.json();
     }).then(data => {

@@ -86,14 +86,8 @@ exports.update = (req, res) => {
     }
     
     console.log(req.body);
-    let name = req.body.name;
+   
 
-    const id = req.params.id;
-
-    // console.log('this is req.body.name: '+name);
-
-    // console.log('this is ID =  '+id);
-    
     
     // User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     //     .then(data => {
