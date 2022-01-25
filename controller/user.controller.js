@@ -127,7 +127,8 @@ exports.delete = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: "Could not delete Tutorial with id=" + id
+                message: "Could not delete User with id=" + id,
+                error: "@"+err
             });
         });
 };

@@ -208,6 +208,16 @@
   box-sizing: border-box;
 }
 
+.modal-delete {
+  position: fixed;
+  top: 0;
+  left: 25px;
+  bottom: 25px;
+  width: 150px;
+  height: 100px;
+  background: #f3f3f3;
+}
+
 .hidden-input-get-id {
   visibility: hidden;
 }
