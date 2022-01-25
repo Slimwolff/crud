@@ -4,6 +4,10 @@ let url = domain+'api/users/getall';
 
 let searchBtn = document.querySelector('.btn-search')
 
+let form = document.forms[0];
+let userFormEdit = document.forms[1];
+
+let dbc = {};
 
 searchBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -18,13 +22,14 @@ searchBtn.addEventListener('click', (e) => {
         }).then((data) => {
 
             console.log(data);
+            dbc = data;
             updateList(data);
 
         })
 });
 
 
-let form = document.forms[0];
+
 let createUserURL = domain+createUserPath;
 
 form[4].addEventListener('click', (e) => {
@@ -76,7 +81,10 @@ let list = document.querySelector('.table-body');
 function updateList(data){
 
     
-    data.forEach( element => {
+    data.forEach( (element, index) => {
+
+    
+
         let tr = document.createElement('tr');
 
         let td1 = document.createElement('td');
@@ -91,7 +99,7 @@ function updateList(data){
         td1.innerText = element.name;
         td2.innerText = element.age;
         td3.innerText = element.cargo;
-        td4.appendChild(createButton(element.id));
+        td4.appendChild(createButton(index));
        
 
         
@@ -101,27 +109,28 @@ function updateList(data){
         }
 
         // ADD <tr> to <tbody>
-        list.appendChild(tr)
+        list.appendChild(tr);
     });
 
 }
 
 // create buttons
-function createButton (id){
+function createButton(index) { 
      
     let div = document.createElement('div');
 
     let btnDel = document.createElement('button');
     let btnEdit = document.createElement('button');
+
     let btn = [btnDel, btnEdit];
+
     // set text of buttons
     btn[0].innerText = "Edit";
     btn[1].innerText = "Delete";
 
 
-    let ids = id;
 
-    btn[0].setAttribute('onclick',`updateUser('${ids}')`);
+    btn[0].setAttribute('onclick',`setUserToEdit('${index}')`);
 
     // add standard classes on buttons
     for (let i=0; i<btn.length; i++) {
@@ -140,26 +149,73 @@ function createButton (id){
 
 }
 
+
+// let formEditUser
 let updateUserURL = domain+'api/users/'
 
-function updateUser(id) {    
-    let updateUser = updateUserURL+`${id}`
-    console.log(updateUser);
 
-    fetch(updateUser, {
-        method: 'PUT',
-        headers: {
-            "Content-Type":"Application/json"
-        }
-    }).then(response => {
-        return response.json();
-    }).then(data => {
-        console.log(data);
-    }) 
-
+function setUserToEdit(index) {    
     
+    let d = dbc[index];
+
+    let data = {
+        id: d.id,
+        name: d.name,
+        age: d.age,
+        cargo: d.cargo,
+    };
+
+
+    userFormEdit[0].value = d.name;
+    userFormEdit[1].value = d.age;
+    userFormEdit[2].value = d.cargo;
+    userFormEdit[3].value = d.id;
+    
+    console.log(data); 
 }
 
 function deleteUser() {
+
+}
+
+
+function updateUser(e) {
+    e.preventDefault();
+
+
+
+    let name = userFormEdit[0].value;
+    let age = userFormEdit[1].value;
+    let cargo = userFormEdit[2].value;
+    let id = userFormEdit[3].value;
+
+    let data = {
+        name: name,
+        age: age,
+        cargo: cargo,
+    };
+
+    let updateRoute = domain+`api/users/${id}`;
+
+    console.log(updateRoute);
+
+
+
+    fetch(updateRoute, {
+        method: 'PUT',
+        headers: {
+            "Content-Type":"Application/json"
+        },
+        body: JSON.stringify(data)
+
+    }).then(response => {
+
+        return response.json();
+
+    }).then(data => {
+
+        console.log(data);
+
+    }) 
 
 }

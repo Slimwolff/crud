@@ -85,26 +85,27 @@ exports.update = (req, res) => {
         });
     }
     
-    console.log(req.body);
+    const id = req.params.id
+    console.log(id);
    
 
     
-    // User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
-    //     .then(data => {
+    User.findByIdAndUpdate(id, req.body, { new: true })
+        .then(data => {
 
-    //         console.log(data);
+            console.log(data);
 
-    //         // if (!data) {
-    //         //     res.status(404).send({
-    //         //         message: `Cannot update User with id=${id}. Maybe User was not found!`
-    //         //     });
-    //         // } else res.send({ message: "User was updated successfully." });
-    //     })
-    //     .catch(err => {
-    //         res.status(500).send({
-    //             message: "Error updating user with id=" + id+ " Error: "+err
-    //         });
-    //     });
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot update User with id=${id}. Maybe User was not found!`
+                });
+            } else res.send({ message: "User was updated successfully." });
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error updating user with id=" + id+ " Error: "+err
+            });
+        });
 };
 
 
@@ -116,11 +117,11 @@ exports.delete = (req, res) => {
         .then(data => {
             if (!data) {
                 res.status(404).send({
-                    message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+                    message: `Cannot delete User with id=${id}. Maybe User was not found!`
                 });
             } else {
                 res.send({
-                    message: "Tutorial was deleted successfully!"
+                    message: "User was deleted successfully!"
                 });
             }
         })

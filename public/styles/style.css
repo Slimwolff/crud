@@ -170,28 +170,35 @@
   flex: 1;
   min-height: 0;
 }
-#main .users-panel .create-user {
+#main .users-panel .user-form-container {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   min-width: 300px;
   width: 425px;
-  height: 400px;
+  height: 300px;
   margin-top: 25px;
   border-radius: 4.5px;
   background: #f9f9f9;
 }
-#main .users-panel .create-user form {
-  width: 80%;
-  height: auto;
-  margin-top: 35px;
+#main .users-panel .user-form-container .form-actions {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  margin-top: 12px;
 }
-#main .users-panel .create-user form .form-container {
+#main .users-panel .user-form-container .form-actions button {
+  margin-left: 20px;
+}
+#main .users-panel form {
+  width: 80%;
+}
+#main .users-panel form .form-container {
   display: flex;
   flex-flow: column wrap;
-  height: 80px;
+  margin-top: 10px;
 }
-#main .users-panel .create-user form .form-container input {
+#main .users-panel form .form-container input {
   height: 30px;
   padding: 5px 10px;
   font-size: 14px;
@@ -200,13 +207,9 @@
   background: #e8e8e8;
   box-sizing: border-box;
 }
-#main .users-panel .create-user form .form-actions {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-}
-#main .users-panel .create-user form .form-actions button {
-  margin-left: 20px;
+
+.hidden-input-get-id {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */

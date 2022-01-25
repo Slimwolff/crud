@@ -77,7 +77,7 @@
         </div>
 
         <div class="users-panel">
-            <div class="create-user">
+            <div class="user-form-container">
                 <div>
                     <h1>Create a user</h1>
                 </div>
@@ -101,11 +101,12 @@
                 </form>
             </div>
 
-            <div class="create-user">
+            <div class="user-form-container">
                 <div>
                     <h1>Edit a user</h1>
                 </div>
-                <form action="/" id="create-user-form">
+                <form action="" id="edit-user-form">
+                    
                     <div class="form-container">
                         <label for="name">Nome:</label>
                         <input type="text" name="name">
@@ -118,9 +119,10 @@
                         <label for="role">Cargo:</label>
                         <input type="text" name="role">
                     </div>
+                    <input type="text" name="id" class="hidden-input-get-id">
                     <div class="form-actions">
                         <button class="btn">Cancelar</button>
-                        <button class="btn">Salvar</button>
+                        <button class="btn" onclick="updateUser(event)">Salvar</button>
                     </div>
                 </form>
             </div>
