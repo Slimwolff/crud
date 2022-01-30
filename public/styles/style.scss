@@ -10,41 +10,39 @@ $primary-color: #0a5aff;
 $success: #66BB6A;
 $warning: #FBC02D;
 $danger: #E53935;
-
-@mixin position($pos: relative, $top: 0, $left: 0, $right:none, $bottom: none){
-
+@mixin position($pos: relative, $top: 0, $left: 0, $right:none, $bottom: none) {
     position: $pos;
-    @if $top != none {
+    @if $top !=none {
         top: $top;
     }
-    @if $left != none{
+    @if $left !=none {
         left: $left;
     }
-    @if $bottom != none {
+    @if $bottom !=none {
         bottom: $bottom;
     }
-    @if $right != none {
+    @if $right !=none {
         right: $right;
     }
 }
 
 @mixin flex($flex: flex, $flow: none, $justify: none, $align-items: none, $align-cont: none) {
     display: $flex;
-    @if $flow != none {
+    @if $flow !=none {
         flex-flow: $flow;
     }
-    @if $justify != none {
+    @if $justify !=none {
         justify-content: $justify;
     }
-    @if $align-items != none {
+    @if $align-items !=none {
         align-items: $align-items;
     }
-    @if $align-cont != none {
+    @if $align-cont !=none {
         align-content: $align-cont;
     }
 }
 
-@mixin btn($bg: $primary-color, $ml: none, $mr: none){
+@mixin btn($bg: $primary-color, $ml: none, $mr: none) {
     width: 80px;
     height: 45px;
     border: none;
@@ -52,29 +50,35 @@ $danger: #E53935;
     cursor: pointer;
     color: #fff;
     background: $bg;
-
-    @if $ml != none{
+    @if $ml !=none {
         margin-left: $ml;
     }
-    @if $mr != none{
+    @if $mr !=none {
         margin-right: $mr;
     }
 }
 
-
 .btn {
     @include btn();
 }
+
 .btn-actions {
     width: 60px !important;
     height: 30px !important;
     margin-right: 5px;
 }
 
+.bg-success {
+    background: $success;
+}
 
-.bg-success { background: $success; }
-.bg-warning { background: $warning; }
-.bg-danger { background: $danger; }
+.bg-warning {
+    background: $warning;
+}
+
+.bg-danger {
+    background: $danger;
+}
 
 #main {
     @include position(fixed);
@@ -82,28 +86,21 @@ $danger: #E53935;
     width: 100%;
     height: 100vh;
     background: #e8e8e8;
-
-    
-    .main-wrapped { 
+    .main-wrapped {
         @include flex($flow: column nowrap, $align-items: center);
         width: 700px;
         height: 100%;
-    
-
         .search-area {
             @include flex($flow: column nowrap);
             width: 90%;
-            
             margin-top: 25px;
             border-radius: 4.5px;
             background: #f9f9f9;
-
             .search {
-                @include flex($flow: row wrap,$align-items: center);
+                @include flex($flow: row wrap, $align-items: center);
                 width: 100%;
                 height: 80px;
-
-                .input-search{
+                .input-search {
                     flex: 1;
                     width: auto;
                     height: 45px;
@@ -121,17 +118,13 @@ $danger: #E53935;
                     font-weight: 600;
                     font-size: 16px;
                 }
-                
             }
-
             .search-actions {
                 @include flex($flow: row nowrap, $justify: space-evenly, $align-items: center);
                 width: 100%;
                 flex: 1;
             }
-
         }
-
         .list-area {
             @include flex($flow: column wrap, $align-items: stretch);
             width: 90%;
@@ -140,29 +133,23 @@ $danger: #E53935;
             margin-bottom: 15px;
             border-radius: 4.5px;
             background: #f9f9f9;
-
-            .user-container{
+            .user-container {
                 @include flex($flow: column nowrap);
                 flex: 1 1 auto;
                 min-height: 0;
                 border: 0.5px solid #c9c9c9;
                 border-radius: 4.5px;
                 background-color: #f1f1f1;
-
                 table {
-
                     border-collapse: collapse;
                     background-color: #fff;
                     table-layout: fixed;
-
                     thead tr {
                         background-color: #0a5aff;
                         color: #fff;
                         text-align: left;
-
                         th:nth-child(1) {
                             width: 100px;
-    
                         }
                         th:nth-child(2) {
                             width: 100px;
@@ -175,10 +162,8 @@ $danger: #E53935;
                             padding: 0 !important;
                         }
                     }
-
                     tr td:nth-child(1) {
                         width: 100px;
-
                     }
                     tr td:nth-child(2) {
                         width: 100px;
@@ -190,39 +175,32 @@ $danger: #E53935;
                         width: 250px;
                         padding: 0 !important;
                     }
-                    td, th {
+                    td,
+                    th {
                         padding: 12px 15px;
                         font-size: 14px;
                         text-align: center;
                     }
-
                     tbody tr {
                         border-bottom: thin solid #dddddd;
                     }
-
                     tbody tr:nth-of-type(even) {
                         background-color: #eaeaea;
                     }
                 }
-
                 .table-body-container {
                     overflow-y: auto;
                     display: flex;
-
                     table {
                         flex: 1;
                     }
                 }
-
             }
         }
     }
-
     .users-panel {
-        
         flex: 1;
         min-height: 0;
-
         .user-form-container {
             @include flex($flow: column wrap, $align-items: center);
             min-width: 300px;
@@ -231,23 +209,18 @@ $danger: #E53935;
             margin-top: 25px;
             border-radius: 4.5px;
             background: #f9f9f9;
-
-            
-    
-                .form-actions {
-                    @include flex($flow: row nowrap, $justify: flex-end);
-                    margin-top: 12px;
-                    button {
-                        margin-left: 20px;
-                    }
+            .form-actions {
+                @include flex($flow: row nowrap, $justify: flex-end);
+                margin-top: 12px;
+                button {
+                    margin-left: 20px;
                 }
+            }
         }
-        
         form {
             width: 80%;
             // height: auto;
             // margin-top: 35px;
-
             .form-container {
                 @include flex($flow: column wrap);
                 margin-top: 10px;
@@ -262,20 +235,36 @@ $danger: #E53935;
                 }
             }
         }
-    
     }
-
-        
 }
 
 .modal-delete {
-    @include position($pos: fixed,$bottom: 25px, $left: 25px );
-    width: 150px;
-    height: 100px;
+    @include position($pos: fixed, $top: 35%, $left: 32%);
+    @include flex($flex: none, $flow: column wrap, $align-items: center);
+    padding: 25px;
     background: #f3f3f3;
+    border-radius: 4.5px;
+    box-sizing: border-box;
+    z-index: 10;
 
+    div {
+        margin-top: 10px;
+    }
 }
 
+.modal-shadow{ 
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0005;
+    z-index: 9;
+}
+.act-modal {
+    display: flex !important;
+}
 
 .hidden-input-get-id {
     visibility: hidden;

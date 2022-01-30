@@ -148,7 +148,8 @@
   width: 250px;
   padding: 0 !important;
 }
-#main .main-wrapped .list-area .user-container table td, #main .main-wrapped .list-area .user-container table th {
+#main .main-wrapped .list-area .user-container table td,
+#main .main-wrapped .list-area .user-container table th {
   padding: 12px 15px;
   font-size: 14px;
   text-align: center;
@@ -210,12 +211,34 @@
 
 .modal-delete {
   position: fixed;
-  top: 0;
-  left: 25px;
-  bottom: 25px;
-  width: 150px;
-  height: 100px;
+  top: 35%;
+  left: 32%;
+  display: none;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 25px;
   background: #f3f3f3;
+  border-radius: 4.5px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+.modal-delete div {
+  margin-top: 10px;
+}
+
+.modal-shadow {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0005;
+  z-index: 9;
+}
+
+.act-modal {
+  display: flex !important;
 }
 
 .hidden-input-get-id {

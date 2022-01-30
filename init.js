@@ -6,6 +6,7 @@ const db = require('./models');
 
 
 
+
 //database connection and handle error
 db.mongoose.connect(db.url, {
     useNewUrlParser: true,
@@ -35,4 +36,3 @@ app.listen(3000, () => {
     console.log('running');
     console.log('DATABASE: Nome, preço, quantidade, categoria');
 })
-

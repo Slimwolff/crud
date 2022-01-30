@@ -2,6 +2,8 @@ let domain = window.location.href;
 let createUserPath = 'api/users/create'
 let url = domain+'api/users/getall';
 
+let erase = false;
+
 let searchBtn = document.querySelector('.btn-search')
 
 let form = document.forms[0];
@@ -213,6 +215,18 @@ function updateUser(e) {
 
     }) 
 
+}
+
+let modalDelete = document.querySelector('.modal-delete');
+let modalShadow = document.querySelector('.modal-shadow');
+
+
+let onConfirm = {
+    Delete: () => { erase = true;},
+    StateOfDelete: () => { 
+        modalDelete.classList.toggle('act-modal');
+        modalShadow.classList.toggle('act-modal');
+    }
 }
 
 function deleteUser(id) {
