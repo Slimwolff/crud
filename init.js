@@ -7,7 +7,7 @@ const db = require('./models');
 
 
 
-//database connection and handle error
+// //database connection and handle error
 db.mongoose.connect(db.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

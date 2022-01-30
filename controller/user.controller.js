@@ -31,7 +31,7 @@ exports.create = (req, res) => {
             res.status(201).send({ message: "User was created successfully!"});
         })
         .catch(err =>  {
-            res.staus(500).send({
+            res.status(500).send({
                 message: err.message || "Something bad occurs!"
             });
         });
