@@ -2,7 +2,7 @@ let domain = window.location.href;
 let createUserPath = 'api/users/create'
 let url = domain+'api/users/getall';
 
-let erase = false;
+
 
 let searchBtn = document.querySelector('.btn-search')
 
@@ -133,6 +133,7 @@ function createButton(index) {
 
 
     btn[0].setAttribute('onclick',`setUserToEdit('${index}')`);
+    btn[1].setAttribute('onclick',`deleteUser('${index}')`);
 
     // add standard classes on buttons
     for (let i=0; i<btn.length; i++) {
@@ -180,7 +181,6 @@ function updateUser(e) {
     e.preventDefault();
 
 
-
     let name = userFormEdit[0].value;
     let age = userFormEdit[1].value;
     let cargo = userFormEdit[2].value;
@@ -196,8 +196,6 @@ function updateUser(e) {
 
     console.log(updateRoute);
 
-
-
     fetch(updateRoute, {
         method: 'PUT',
         headers: {
@@ -207,7 +205,11 @@ function updateUser(e) {
 
     }).then(response => {
 
-        return response.json();
+        if(response.status == 200) {
+            for(let i=0; i<userFormEdit.childElementCount; i++) {
+                userFormEdit[i].value = ''
+            }
+        }
 
     }).then(data => {
 
@@ -217,41 +219,94 @@ function updateUser(e) {
 
 }
 
-let modalDelete = document.querySelector('.modal-delete');
-let modalShadow = document.querySelector('.modal-shadow');
+const modalDelete = document.querySelector('.modal-delete');
+const modalShadow = document.querySelector('.modal-shadow');
 
+const confirmBtn = document.getElementById('confirmBtn');
+const cancelBtn = document.getElementById('cancelBtn');
 
-let onConfirm = {
-    Delete: () => { erase = true;},
-    StateOfDelete: () => { 
-        modalDelete.classList.toggle('act-modal');
-        modalShadow.classList.toggle('act-modal');
-    }
+function showModalBeforeDelete() {
+    modalDelete.classList.toggle('act-modal');
+    modalShadow.classList.toggle('act-modal');
 }
 
-function deleteUser(id) {
+function confirmDelete() {
+    return new Promise((resolve,reject) => {
+
+        showModalBeforeDelete();
+
+        function resolvePromise() {
+
+            showModalBeforeDelete();
+
+            confirmBtn.removeEventListener('click', resolvePromise);
+            cancelBtn.removeEventListener('click', rejectPromise);
+            modalShadow.removeEventListener('click', rejectPromise);
+
+            resolve('promise-acepted');
+        }
+
+        function rejectPromise() {
+
+            showModalBeforeDelete();
+
+            cancelBtn.removeEventListener('click', rejectPromise);
+            confirmBtn.removeEventListener('click', resolvePromise);
+            modalShadow.removeEventListener('click', rejectPromise);
+
+            resolve('promise-rejected');
+        }
+
+        confirmBtn.addEventListener('click', resolvePromise);
+        cancelBtn.addEventListener('click', rejectPromise);
+        modalShadow.addEventListener('click', rejectPromise);
+
+        console.log('new promise threw');
+
+    })
+}
+
+
+async function deleteUser(index) {
+
+
+    let id = dbc[index].id
 
     let deleteRoute = domain+`api/users/${id}`;
 
-    if(confirm) {
-        
-    }else{
-        fetch(deleteRoute, {
-            method: 'PUT',
-            headers: {
-                "Content-Type":"Application/json"
-            },
-            body: JSON.stringify(data)
+
+    await confirmDelete().then(data => {
+
+            if(data == 'promise-acepted'){
+                fetch(deleteRoute, {
+                    method: 'DELETE'
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    console.log(data);
+                }).catch(err => console.log(err))
+            }else {
+                console.log('delete user cancealed');   
+            }
+        })
+
+
+    // fetch(deleteRoute, {
+    //     method: 'PUT',
+    //     headers: {
+    //         "Content-Type":"Application/json"
+    //     },
+    //     body: JSON.stringify(data)
     
-        }).then(response => {
+    // }).then(response => {
     
-            return response.json();
+    //     return response.json();
     
-        }).then(data => {
+    // }).then(data => {
     
-            console.log(data);
+    //     console.log(data);
     
-        }) 
-    }
+    // }) 
+    
     
 }

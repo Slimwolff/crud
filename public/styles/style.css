@@ -245,4 +245,14 @@
   visibility: hidden;
 }
 
+#debug {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: aqua;
+}
+
 /*# sourceMappingURL=style.css.map */
