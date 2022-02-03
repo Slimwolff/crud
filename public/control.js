@@ -231,7 +231,7 @@ function showModalBeforeDelete() {
 }
 
 function confirmDelete() {
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve) => {
 
         showModalBeforeDelete();
 
@@ -269,7 +269,6 @@ function confirmDelete() {
 
 async function deleteUser(index) {
 
-
     let id = dbc[index].id
 
     let deleteRoute = domain+`api/users/${id}`;
@@ -289,24 +288,4 @@ async function deleteUser(index) {
                 console.log('delete user cancealed');   
             }
         })
-
-
-    // fetch(deleteRoute, {
-    //     method: 'PUT',
-    //     headers: {
-    //         "Content-Type":"Application/json"
-    //     },
-    //     body: JSON.stringify(data)
-    
-    // }).then(response => {
-    
-    //     return response.json();
-    
-    // }).then(data => {
-    
-    //     console.log(data);
-    
-    // }) 
-    
-    
 }

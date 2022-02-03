@@ -183,9 +183,21 @@ $danger: #E53935;
                     }
                     tbody tr {
                         border-bottom: thin solid #dddddd;
+
+                        div {
+                            visibility: hidden;
+                            
+                        }
                     }
                     tbody tr:nth-of-type(even) {
                         background-color: #eaeaea;
+                    }
+                    tbody tr:hover {
+                        background-color: #dadada;
+
+                        div {
+                            visibility: visible;
+                        }
                     }
                 }
                 .table-body-container {
@@ -217,6 +229,7 @@ $danger: #E53935;
                 }
             }
         }
+
         form {
             width: 80%;
             // height: auto;
@@ -224,6 +237,7 @@ $danger: #E53935;
             .form-container {
                 @include flex($flow: column wrap);
                 margin-top: 10px;
+
                 input {
                     height: 30px;
                     padding: 5px 10px;
@@ -267,7 +281,7 @@ $danger: #E53935;
 }
 
 .hidden-input-get-id {
-    visibility: hidden;
+    display: none;
 }
 
 #debug{

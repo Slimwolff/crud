@@ -157,8 +157,17 @@
 #main .main-wrapped .list-area .user-container table tbody tr {
   border-bottom: thin solid #dddddd;
 }
+#main .main-wrapped .list-area .user-container table tbody tr div {
+  visibility: hidden;
+}
 #main .main-wrapped .list-area .user-container table tbody tr:nth-of-type(even) {
   background-color: #eaeaea;
+}
+#main .main-wrapped .list-area .user-container table tbody tr:hover {
+  background-color: #dadada;
+}
+#main .main-wrapped .list-area .user-container table tbody tr:hover div {
+  visibility: visible;
 }
 #main .main-wrapped .list-area .user-container .table-body-container {
   overflow-y: auto;
@@ -242,7 +251,7 @@
 }
 
 .hidden-input-get-id {
-  visibility: hidden;
+  display: none;
 }
 
 #debug {
