@@ -1,15 +1,23 @@
-let domain = window.location.href;
-let createUserPath = 'api/users/create'
-let url = domain+'api/users/getall';
+const domain = window.location.href;
+const createUserPath = 'api/users/create';
+const createUserURL = domain+createUserPath;
+const url = domain+'api/users/getall';
+const updateUserURL = domain+'api/users/';
 
+const modalDelete = document.querySelector('.modal-delete');
+const modalShadow = document.querySelector('.modal-shadow');
+const confirmBtn = document.getElementById('confirmBtn');
+const cancelBtn = document.getElementById('cancelBtn');
 
+const list = document.querySelector('.table-body');
 
-let searchBtn = document.querySelector('.btn-search')
+const searchBtn = document.querySelector('.btn-search')
 
 let form = document.forms[0];
 let userFormEdit = document.forms[1];
 
 let dbc = {};
+
 
 searchBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -22,17 +30,16 @@ searchBtn.addEventListener('click', (e) => {
             return response.json();
 
         }).then((data) => {
-
             console.log(data);
             dbc = data;
+            clearList();
             updateList(data);
-
         })
 });
 
 
 
-let createUserURL = domain+createUserPath;
+
 
 form[4].addEventListener('click', (e) => {
 
@@ -51,7 +58,6 @@ form[4].addEventListener('click', (e) => {
         age: age,
         cargo: cargo
     }
- 
     
     fetch(createUserURL, {
         method: 'POST',
@@ -71,14 +77,17 @@ form[4].addEventListener('click', (e) => {
         return data.json();
 
     }).then((data) => {
-        // console.log(data);
-
-        // if()
+     
     })
     
 });
 
-let list = document.querySelector('.table-body');
+
+
+
+function clearList() {
+    list.replaceChildren();
+}
 
 function updateList(data){
 
@@ -130,8 +139,6 @@ function createButton(index) {
     btn[0].innerText = "Edit";
     btn[1].innerText = "Delete";
 
-
-
     btn[0].setAttribute('onclick',`setUserToEdit('${index}')`);
     btn[1].setAttribute('onclick',`deleteUser('${index}')`);
 
@@ -152,11 +159,6 @@ function createButton(index) {
 
 }
 
-
-// let formEditUser
-let updateUserURL = domain+'api/users/'
-
-
 function setUserToEdit(index) {    
     
     let d = dbc[index];
@@ -168,7 +170,6 @@ function setUserToEdit(index) {
         cargo: d.cargo,
     };
 
-
     userFormEdit[0].value = d.name;
     userFormEdit[1].value = d.age;
     userFormEdit[2].value = d.cargo;
@@ -179,7 +180,6 @@ function setUserToEdit(index) {
 
 function updateUser(e) {
     e.preventDefault();
-
 
     let name = userFormEdit[0].value;
     let age = userFormEdit[1].value;
@@ -219,11 +219,6 @@ function updateUser(e) {
 
 }
 
-const modalDelete = document.querySelector('.modal-delete');
-const modalShadow = document.querySelector('.modal-shadow');
-
-const confirmBtn = document.getElementById('confirmBtn');
-const cancelBtn = document.getElementById('cancelBtn');
 
 function showModalBeforeDelete() {
     modalDelete.classList.toggle('act-modal');
